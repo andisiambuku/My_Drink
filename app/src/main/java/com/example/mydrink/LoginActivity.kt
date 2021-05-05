@@ -17,26 +17,26 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        btn_register.setOnClickListener{
+        /*btn_register.setOnClickListener{
             startActivity(Intent(this@LoginActivity,RegisterActivity::class.java))
-        }
+        }*/
         btn_login.setOnClickListener{
             when{
-                TextUtils.isEmpty(my_register_email.text.toString().trim {it <=  ' ' }) -> {
+                TextUtils.isEmpty(my_login_email.text.toString().trim{it <=  ' ' }) ->{
                     Toast.makeText(this@LoginActivity,
                         "Please enter email",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                TextUtils.isEmpty(my_register_password.text.toString().trim{ it <= ' ' }) ->{
+                TextUtils.isEmpty(my_login_password.text.toString().trim{it <= ' ' }) ->{
                     Toast.makeText(this@LoginActivity,
                         "Please enter password",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 else ->{
-                    val email: String = my_register_email.text.toString().trim{it <= ' '}
-                    val password: String = my_register_email.text.toString().trim{it <= ' '}
+                    val email: String = my_login_email.text.toString().trim{it <= ' '}
+                    val password: String = my_login_email.text.toString().trim{it <= ' '}
 
                     //Login using FirebaseAuth.
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
